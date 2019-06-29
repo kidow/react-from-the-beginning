@@ -23,25 +23,20 @@
 
         render() {
           return (
-            <button
-              type="submit"
-              onClick={() => this.setState({ liked: true })}
-            >
-              {this.state.liked ? 'Liked' : 'Like'}
-            </button> // JSX ( JS + XML )
+            <React.Fragment>
+              <button
+                type="submit"
+                onClick={() => this.setState({ liked: true })}
+              >
+                {this.state.liked ? 'Liked' : 'Like'}
+              </button>
+            </React.Fragment>
           )
         }
       }
     </script>
     <script type="text/babel">
-      ReactDOM.render(
-        <div>
-          <LikeButton />
-          <LikeButton />
-          <LikeButton />
-        </div>,
-        document.querySelector('#root')
-      )
+      ReactDOM.render(<LikeButton />, document.querySelector('#root'))
     </script>
   </body>
 </html>

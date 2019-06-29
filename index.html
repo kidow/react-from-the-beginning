@@ -17,23 +17,25 @@
         constructor(props) {
           super(props)
           this.state = {
-            liked: false
+            liked: false,
+            value: ''
           }
+        }
+
+        onClick = () => {
+          this.setState(prevState => ({
+            liked: !prevState.liked
+          }))
+          this.hello.focus()
         }
 
         render() {
           return (
             <React.Fragment>
-              <button
-                type="submit"
-                onClick={() =>
-                  this.setState(prevState => ({
-                    liked: !prevState.liked
-                  }))
-                }
-              >
+              <button type="submit" onClick={this.onClick}>
                 {this.state.liked ? 'Liked' : 'Like'}
               </button>
+              <input ref={c => (this.hello = c)} value={this.state.value} />
             </React.Fragment>
           )
         }

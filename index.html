@@ -17,6 +17,9 @@
       class LikeButton extends React.Component {
         constructor(props) {
           super(props)
+          this.state = {
+            liked: false
+          }
         }
 
         render() {
@@ -24,11 +27,11 @@
             'button',
             {
               onClick: () => {
-                console.log('clicked')
+                this.setState({ liked: true })
               },
               type: 'submit'
             },
-            'Like'
+            this.state.liked ? 'Liked' : 'Like'
           ) // <button>Like</button>
         }
       }

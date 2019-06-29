@@ -13,37 +13,38 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      class LikeButton extends React.Component {
-        constructor(props) {
-          super(props)
-          this.state = {
-            liked: false,
-            value: ''
-          }
+      const GuGuDan = () => {
+        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9))
+        const [second, setSecond] = React.useState(Math.ceil(Math.random() * 9))
+        const [value, setValue] = React.useState('')
+        const [result, setResult] = React.useState('')
+        const inputRef = React.useRef()
+
+        const onChange = e => {
+          setValue(e.target.value)
         }
 
-        onClick = () => {
-          this.setState(prevState => ({
-            liked: !prevState.liked
-          }))
-          this.hello.focus()
+        const onSubmit = e => {
+          e.preventDefault()
+          inputRef.current.focus()
         }
 
-        render() {
-          console.log('렌더링')
-          return (
-            <React.Fragment>
-              <button type="submit" onClick={this.onClick}>
-                {this.state.liked ? 'Liked' : 'Like'}
-              </button>
-              <input ref={c => (this.hello = c)} value={this.state.value} />
-            </React.Fragment>
-          )
-        }
+        return (
+          <React.Fragment>
+            <div>
+              {first} 곱하기 {second}는?
+            </div>
+            <form onSubmit={onSubmit}>
+              <input value={value} ref={inputRef} onChange={onChange} />
+              <button type="submit">입력</button>
+            </form>
+            <div id="result">{result}</div>
+          </React.Fragment>
+        )
       }
     </script>
     <script type="text/babel">
-      ReactDOM.render(<LikeButton />, document.querySelector('#root'))
+      ReactDOM.render(<GuGuDan />, document.querySelector('#root'))
     </script>
   </body>
 </html>

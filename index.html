@@ -20,7 +20,16 @@
         }
 
         render() {
-          return e('button', null, 'Like') // <button>Like</button>
+          return e(
+            'button',
+            {
+              onClick: () => {
+                console.log('clicked')
+              },
+              type: 'submit'
+            },
+            'Like'
+          ) // <button>Like</button>
         }
       }
     </script>

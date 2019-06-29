@@ -9,5 +9,23 @@
       src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
     ></script>
   </head>
-  <body></body>
+  <body>
+    <div id="root"></div>
+    <script>
+      const e = React.createElement
+
+      class LikeButton extends React.Component {
+        constructor(props) {
+          super(props)
+        }
+
+        render() {
+          return e('button', null, 'Like') // <button>Like</button>
+        }
+      }
+    </script>
+    <script>
+      ReactDOM.render(e(LikeButton), document.querySelector('#root'))
+    </script>
+  </body>
 </html>

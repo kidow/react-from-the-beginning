@@ -1,10 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-class Counter extends Component {
+class Counter extends PureComponent {
   state = { counter: 0 }
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.counter !== nextState.counter
-  }
   onClick = () =>
     this.setState(prevState => ({ counter: prevState.counter + 1 }))
   render() {

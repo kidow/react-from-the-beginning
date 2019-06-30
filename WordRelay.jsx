@@ -1,47 +1,41 @@
 const React = require('react')
-const { Component } = React
+const { useState, useRef } = React
 
-class WordRelay extends Component {
-  state = {
-    word: '기도우',
-    value: '',
-    result: ''
-  }
-  onSubmit = e => {
+const WordRelay = () => {
+  const [word, setWord] = useState('기도우')
+  const [value, setValue] = useState('')
+  const [result, setResult] = useState('')
+  const inputRef = useRef(null)
+  const onSubmit = e => {
     e.preventDefault()
-    const { word, value } = this.state
     if (word[word.length - 1] === value[0]) {
-      this.setState({
-        result: '딩동댕',
-        word: value,
-        value: ''
-      })
-      this.input.focus()
+      setWord(value)
+      setResult('딩동댕')
+      setValue('')
     } else {
-      this.setState({
-        result: '땡',
-        value: ''
-      })
+      setResult('땡')
+      setValue('')
     }
+    inputRef.current.focus()
   }
-  onChange = e => this.setState({ value: e.target.value })
-  onRef = c => (this.input = c)
-  render() {
-    return (
-      <>
-        <div>{this.state.word}</div>
-        <form onSubmit={this.onSubmit}>
-          <input
-            ref={this.onRef}
-            value={this.state.value}
-            onChange={this.onChange}
-          />
-          <button>입력</button>
-        </form>
-        <div>{this.state.result}</div>
-      </>
-    )
-  }
+  const onChange = e => setValue(e.target.value)
+  return (
+    <>
+      <div>{word}</div>
+      <form onSubmit={onSubmit}>
+        <label htmlFor="wordInput">글자를 입력하세요.</label>
+        <input
+          id="wordInput"
+          className="wordInput"
+          ref={inputRef}
+          value={value}
+          onChange={onChange}
+        />
+        <button>입력</button>
+      </form>
+      <div>{result}</div>
+    </>
+  )
 }
 
 module.exports = WordRelay

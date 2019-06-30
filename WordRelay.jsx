@@ -1,5 +1,4 @@
-const React = require('react')
-const { useState, useRef } = React
+import React, { useRef, useState } from 'react'
 
 const WordRelay = () => {
   const [word, setWord] = useState('기도우')
@@ -38,4 +37,4 @@ const WordRelay = () => {
   )
 }
 
-module.exports = WordRelay
+export default WordRelay

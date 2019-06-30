@@ -1,8 +1,8 @@
-const React = require('react')
-const ReactDOM = require('react-dom')
-const { hot } = require('react-hot-loader/root')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { hot } from 'react-hot-loader/root'
 
-const WordRelay = require('./WordRelay')
+import WordRelay from './WordRelay'
 
 const App = hot(WordRelay)
 

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, memo } from 'react'
 
-const WordRelay = () => {
+const WordRelay = memo(() => {
   const [word, setWord] = useState('기도우')
   const [value, setValue] = useState('')
   const [result, setResult] = useState('')
@@ -35,6 +35,6 @@ const WordRelay = () => {
       <div>{result}</div>
     </>
   )
-}
+})
 
 export default WordRelay

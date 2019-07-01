@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { hot } from 'react-hot-loader/root'
 
-import Counter from './Counter'
+import WordRelay from './WordRelay'
 
-const App = hot(Counter)
+const App = hot(WordRelay)
 
 ReactDOM.render(<App />, document.getElementById('root'))

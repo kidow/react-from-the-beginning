@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { hot } from 'react-hot-loader/root'
 
-import WordRelay from './WordRelay'
+import Tictactoe from './Tictactoe'
 
-const App = hot(WordRelay)
+const App = hot(Tictactoe)
 
 ReactDOM.render(<App />, document.getElementById('root'))
